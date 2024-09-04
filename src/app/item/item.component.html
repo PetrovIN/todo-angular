@@ -5,9 +5,9 @@
         (change)="item.completed = !item.completed"
         [checked]="item.completed"
     />
-    <label [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
 
     <div *ngIf="!editable">
+        <label [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
         <!-- <button (click)="editable = !editable">Edit</button> -->
         <button (click)="remove.emit()">Delete</button>
     </div>
