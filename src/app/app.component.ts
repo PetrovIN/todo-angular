@@ -22,6 +22,10 @@ export class AppComponent {
     });
   }
 
+  remove(item: any) {
+    this.allItems.splice(this.allItems.indexOf(item), 1);
+  }
+
   get items() {
     if (this.filter === 'all') {
       return this.allItems;
