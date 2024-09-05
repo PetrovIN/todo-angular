@@ -3,13 +3,17 @@
         class="checkbox-completed"
         [id]="item.description"
         type="checkbox"
-        (change)="item.completed = !item.completed; done = !done"
+        (change)="item.completed = !item.completed"
         [checked]="item.completed"
     />
 
-    <div *ngIf="!editable">
+    <div *ngIf="!editable"
+        (mouseover)="hideElement= false"
+        (mouseleave)="hideElement= true"
+    >
         <label [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
         <!-- <button (click)="editable = !editable">Edit</button> -->
+        <button *ngIf="!hideElement" (click)="remove.emit()">Delete</button>
     </div>
 
     <div *ngIf="editable">
@@ -22,6 +26,5 @@
         <button (click)="editable = !editable">Cancel</button>
         <!-- <button (click)="saveItem(editedItem.value)">Save</button> -->
     </div>
-    <button *ngIf="done" (click)="remove.emit()">Delete</button>
 
 </div>
