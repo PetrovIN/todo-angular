@@ -10,8 +10,10 @@ export class AppComponent {
 
   filter: 'all' | 'active' | 'completed' = 'all'
 
+  //done = false;
+
   allItems = [
-    { description: 'something', completed: true },
+    { description: 'something', completed: false },
     { description: 'need to do', completed: false }
   ]
 

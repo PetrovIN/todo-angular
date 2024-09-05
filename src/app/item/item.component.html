@@ -1,15 +1,15 @@
 <div class="item">
     <input 
+        class="checkbox-completed"
         [id]="item.description"
         type="checkbox"
-        (change)="item.completed = !item.completed"
+        (change)="item.completed = !item.completed; done = !done"
         [checked]="item.completed"
     />
 
     <div *ngIf="!editable">
         <label [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
         <!-- <button (click)="editable = !editable">Edit</button> -->
-        <button (click)="remove.emit()">Delete</button>
     </div>
 
     <div *ngIf="editable">
@@ -20,7 +20,8 @@
             (keyup.enter)="saveItem(editedItem.value)"
         />
         <button (click)="editable = !editable">Cancel</button>
-        <button (click)="saveItem(editedItem.value)">Save</button>
+        <!-- <button (click)="saveItem(editedItem.value)">Save</button> -->
     </div>
+    <button *ngIf="done" (click)="remove.emit()">Delete</button>
 
 </div>

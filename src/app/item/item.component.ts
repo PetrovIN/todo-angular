@@ -9,6 +9,7 @@ import { Item } from '../item';
 export class ItemComponent {
 
   editable = false;
+  done = false;
 
   @Input() item!: Item;
   @Input() newItem!: string;
