@@ -29,16 +29,24 @@ export class AppComponent {
     this.allItems.splice(this.allItems.indexOf(item), 1);
   }
 
-  removeAllCompleted(): void {
-    this.allItems.forEach(
-      item => {
-        if (item.completed) {
-          console.log('before ',this.allItems);
-          this.allItems.splice(this.allItems.indexOf(item), 1);
-          console.log('after ',this.allItems);
+  removeAllCompleted = () => {
+    //let newAllItems = [...this.allItems];
+    let arr: Item[] = [];
+
+    this.allItems.reduce<Item[]>((acc, curr) => {
+      if(!curr.completed) {
+        arr.push(curr);
+        return arr;
       }
-    });
+      return acc;
+    }, []);
+    this.allItems = arr;
   }
+
+  // removeAllCompleted(): void {
+  //   let a: Item[] = [];
+
+  // }
 
   get items() {
     if (this.filter === 'all') {
