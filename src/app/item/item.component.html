@@ -11,7 +11,7 @@
         (mouseover)="hideElement= false"
         (mouseleave)="hideElement= true"
     >
-        <label [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
+        <label class="labelDescription" [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
         <!-- <button (click)="editable = !editable">Edit</button> -->
         <button *ngIf="!hideElement" (click)="remove.emit()">Delete</button>
     </div>

@@ -2,3 +2,6 @@
     display: flex;
     flex-direction: row;
 }
+.labelDescription {
+    width: 50px;
+}

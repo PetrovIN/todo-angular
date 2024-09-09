@@ -3,15 +3,22 @@
 
   <h1>ToDo List</h1>
 
-  <input type="text"
-    #newItem
-    placeholder="Type what you need to do"
-    (keyup.enter)="addItem(newItem.value); newItem.value='' "
-    class="todo-text-input"
-    id="addItemInput"
-  />
+  <div class="inputToDo">
+    <input type="text"
+      #newItem
+      placeholder="Type what you need to do"
+      (keyup.enter)="addItem(newItem.value); newItem.value='' "
+      class="todo-text-input"
+      id="addItemInput"
+    />
 
-  <button class="btn-addItem" (click)="addItem(newItem.value)">Add</button>
+    <button class="btn-addItem" (click)="addItem(newItem.value)">Add</button>
+  </div>
+  
+  <div class="allCompletedCheckbox">
+    <input type="checkbox" (change)="allCompleted($event)"/>
+    <span>All Completed</span>
+  </div>
 
   <h2>
     {{items.length}}

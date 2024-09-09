@@ -43,10 +43,9 @@ export class AppComponent {
     this.allItems = arr;
   }
 
-  // removeAllCompleted(): void {
-  //   let a: Item[] = [];
-
-  // }
+  allCompleted = (evt: any) => {
+    this.allItems.forEach((item) => item.completed = evt.target.checked);
+  }
 
   get items() {
     if (this.filter === 'all') {
