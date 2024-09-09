@@ -12,7 +12,7 @@
       id="addItemInput"
     />
 
-    <button class="btn-addItem" (click)="addItem(newItem.value)">Add</button>
+    <button class="btn-addItem" (click)="addItem(newItem.value); newItem.value=''">Add</button>
   </div>
   
   <div class="allCompletedCheckbox">

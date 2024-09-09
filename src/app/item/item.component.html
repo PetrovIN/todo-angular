@@ -10,16 +10,19 @@
     <div *ngIf="!editable"
         (mouseover)="hideElement= false"
         (mouseleave)="hideElement= true"
+        class="div-label"
     >
         <label class="labelDescription" [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
         <!-- <button (click)="editable = !editable">Edit</button> -->
-        <button *ngIf="!hideElement" (click)="remove.emit()">Delete</button>
+        <button class="btn-delete" *ngIf="!hideElement" (click)="remove.emit()">Delete</button>
     </div>
 
     <div *ngIf="editable">
         <input type="text"
+            class="input-editItem"
             placeholder="edit item"
             [value]="item.description"
+            (blur)="editable = !editable"
             #editedItem
             (keyup.enter)="saveItem(editedItem.value)"
         />

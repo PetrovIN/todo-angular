@@ -3,5 +3,21 @@
     flex-direction: row;
 }
 .labelDescription {
-    width: 50px;
+    display: inline-block;
+    width:445px;
+    text-align: left;
+}
+.div-label {
+    width: 500px;
+    height: 20px;
+    border: 1px solid;
+}
+.btn-delete {
+    color: black;
+    border-radius: 4px;
+    border-width: 1px;
+    margin-top: 1px;
+}
+.input-editItem {
+    width: 445px;
 }
