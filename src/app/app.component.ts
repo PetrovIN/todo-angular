@@ -25,7 +25,7 @@ export class AppComponent {
     }
   }
 
-  remove(item: any): void {
+  remove(item: Item): void {
     this.allItems.splice(this.allItems.indexOf(item), 1);
   }
 
@@ -43,8 +43,9 @@ export class AppComponent {
     this.allItems = arr;
   }
 
-  allCompleted = (evt: any) => {
-    this.allItems.forEach((item) => item.completed = evt.target.checked);
+  allCompleted = (evt: Event) => {
+    const isChecked = (evt.target as HTMLInputElement).checked
+    this.allItems.forEach((item) => item.completed = isChecked);
   }
 
   get items() {

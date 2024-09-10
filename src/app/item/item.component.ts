@@ -15,10 +15,6 @@ export class ItemComponent {
   @Input() newItem!: string;
   @Output() remove = new EventEmitter<Item>();
 
-  didSomething = () => {
-    console.log("ok");
-  }
-
   saveItem(description: string) {
     if (!description) return;
     this.editable = false;
