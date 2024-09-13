@@ -1,58 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Item } from './item';
+import { ItemComponent } from './components/item/item.component';
+import { ItemService } from './services/item/item.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ItemService]
 })
 export class AppComponent {
+
   title = 'todo-angular';
 
-  filter: 'all' | 'active' | 'completed' = 'all'
+  allItems: Item[] = [];
 
-  allItems: Item[] = [
-    // { description: 'something', completed: false },
-    // { description: 'need to do', completed: false }
-  ]
+  constructor(private itemService: ItemService) {
+    
+  }
 
-  addItem(description: string): void {
-    if (description) {
-      this.allItems.unshift({
-        description,
-        completed: false
-      });
-    }
+  filter = this.itemService.filter;
+
+
+  addItem = (description: string) => {
+    this.itemService.addItem(description);
+  }
+
+  ngOnInit = () => {
+    //this.allItems = this.itemService.getItems();
   }
 
   remove(item: Item): void {
-    this.allItems.splice(this.allItems.indexOf(item), 1);
+    this.itemService.remove(item);
   }
 
   removeAllCompleted = () => {
-    //let newAllItems = [...this.allItems];
-    let arr: Item[] = [];
-
-    this.allItems.reduce<Item[]>((acc, curr) => {
-      if(!curr.completed) {
-        arr.push(curr);
-        return arr;
-      }
-      return acc;
-    }, []);
-    this.allItems = arr;
+    this.itemService.removeAllCompleted();
   }
 
   allCompleted = (evt: Event) => {
-    const isChecked = (evt.target as HTMLInputElement).checked
-    this.allItems.forEach((item) => item.completed = isChecked);
+    this.itemService.allCompleted(evt);
   }
 
   get items() {
-    if (this.filter === 'all') {
-      return this.allItems;
-    }
-    return this.allItems.filter(item => this.filter === 'completed' ? item.completed : !item.completed)                   ;
+    return this.itemService.items;                   ;
   }
  
 }
