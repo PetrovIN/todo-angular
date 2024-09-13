@@ -33,9 +33,9 @@
   </ul>
 
   <div>
-    <button class="btn-filter" (click)="filter = 'all'">All</button>
-    <button class="btn-filter" (click)="filter = 'active'">Active</button>
-    <button class="btn-filter" (click)="filter = 'completed'">Completed</button>
+    <button class="btn-filter" (click)="filter = 'all'" (click)="getFilters()">All</button>
+    <button class="btn-filter" (click)="filter = 'active'" (click)="getFilters()">Active</button>
+    <button class="btn-filter" (click)="filter = 'completed'" (click)="getFilters()">Completed</button>
 
     <button class="btn-filter" (click)="removeAllCompleted()">Clear Completed</button>
 </div>

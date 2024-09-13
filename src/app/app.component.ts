@@ -45,5 +45,9 @@ export class AppComponent {
   get items() {
     return this.itemService.items;                   ;
   }
- 
+  
+  getFilters = () => {
+    this.itemService.filter = this.filter;
+  }
+
 }
