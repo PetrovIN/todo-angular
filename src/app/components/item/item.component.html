@@ -3,7 +3,7 @@
         class="checkbox-completed"
         [id]="item.description"
         type="checkbox"
-        (change)="item.completed = !item.completed"
+        (change)="item.completed = !item.completed; getEditable()"
         [checked]="item.completed"
     />
 
@@ -24,10 +24,10 @@
             [value]="item.description"
             (blur)="editable = !editable"
             #editedItem
-            (keyup.enter)="saveItem(editedItem.value)"
+            (keyup.enter)="saveItem(editedItem.value, item); getEditable()"
         />
         <button (click)="editable = !editable">Cancel</button>
-        <button (click)="saveItem(editedItem.value)">Save</button>
+        <!-- <button (click)="saveItem(editedItem.value, item)">Save</button> -->
     </div>
 
 </div>

@@ -13,8 +13,6 @@ export class AppComponent {
 
   title = 'todo-angular';
 
-  allItems: Item[] = [];
-
   constructor(private itemService: ItemService) {
     
   }
@@ -26,11 +24,11 @@ export class AppComponent {
     this.itemService.addItem(description);
   }
 
-  ngOnInit = () => {
-    //this.allItems = this.itemService.getItems();
-  }
+  // ngOnInit = () => {
+  //   this.allItems = this.itemService.getItems();
+  // }
 
-  remove(item: Item): void {
+  remove = (item: Item): void => {
     this.itemService.remove(item);
   }
 
@@ -43,7 +41,7 @@ export class AppComponent {
   }
 
   get items() {
-    return this.itemService.items;                   ;
+    return this.itemService.items;
   }
   
   getFilters = () => {

@@ -23,10 +23,11 @@ export class ItemService {
     }
   }
 
-  saveItem(description: string) {
+  saveItem(description: string, item: Item) {
+    console.log(item);
     if (!description) return;
     this.editable = false;
-    this.item.description = description;  
+    item.description = description;
   }
 
   remove(item: Item): void {
@@ -60,7 +61,7 @@ export class ItemService {
 
   }
 
-  getItems = () => {
-    return this.allItems;
-  }
+  // getItems = () => {
+  //   return this.allItems;
+  // }
 }

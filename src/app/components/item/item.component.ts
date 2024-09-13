@@ -13,33 +13,18 @@ export class ItemComponent {
 
   }
 
-  @Input() item!: Item; 
-  @Input() newItem!: string;
+  @Input() item!: Item;
   @Output() remove = new EventEmitter<Item>();
 
   editable: boolean = this.itemService.editable;
   hideElement: boolean = true;
 
-  saveItem(description: string) {
-    this.itemService.saveItem(description);
+  saveItem(description: string, item: Item) {
+    this.itemService.editable = this.editable;
+    this.itemService.saveItem(description, item);
   }
 
-  // remove(item: Item) {
-  //   this.itemService.remove(item);
-  // }
-  //itemService: ItemService = inject(ItemService);
-
-
-  // editable: boolean = false;
-  // hideElement: boolean = true;
-
-  // @Input() item!: Item;
-  // @Input() newItem!: string;
-  // @Output() remove = new EventEmitter<Item>();
-
-  // saveItem(description: string) {
-  //   if (!description) return;
-  //   this.editable = false;
-  //   this.item.description = description;
-  // }
+  getEditable = () => {
+    console.log(this.editable);
+  }
 }
