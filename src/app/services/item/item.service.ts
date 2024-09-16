@@ -24,7 +24,6 @@ export class ItemService {
   }
 
   saveItem(description: string, item: Item) {
-    console.log(item);
     if (!description) return;
     this.editable = false;
     item.description = description;

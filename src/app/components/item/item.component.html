@@ -21,10 +21,11 @@
         <input type="text"
             class="input-editItem"
             placeholder="edit item"
+            autofocus;
             [value]="item.description"
             (blur)="editable = !editable"
             #editedItem
-            (keyup.enter)="saveItem(editedItem.value, item); getEditable()"
+            (keyup.enter)="saveItem(editedItem.value, item); editedItem.blur()"
         />
         <button (click)="editable = !editable">Cancel</button>
         <!-- <button (click)="saveItem(editedItem.value, item)">Save</button> -->
