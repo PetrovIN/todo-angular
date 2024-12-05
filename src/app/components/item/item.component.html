@@ -1,0 +1,33 @@
+<div class="item">
+    <input 
+        class="checkbox-completed"
+        [id]="item.description"
+        type="checkbox"
+        (change)="item.completed = !item.completed; getEditable()"
+        [checked]="item.completed"
+    />
+
+    <div *ngIf="!editable"
+        (mouseover)="hideElement = false"
+        (mouseleave)="hideElement = true"
+        class="div-label"
+    >
+        <label class="labelDescription" [for]="item.description" (dblclick)="editable = !editable">{{item.description}}</label>
+        <!-- <button (click)="editable = !editable">Edit</button> -->
+        <button class="btn-delete" *ngIf="!hideElement" (click)="remove.emit()">Delete</button>
+    </div>
+
+    <div *ngIf="editable">
+        <input type="text"
+            class="input-editItem"
+            placeholder="edit item"
+            [value]="item.description"
+            (blur)="editable = !editable"
+            #editedItem
+            (keyup.enter)="saveItem(editedItem.value, item); editedItem.blur()"
+        />
+        <button (click)="editable = !editable">Cancel</button>
+        <!-- <button (click)="saveItem(editedItem.value, item)">Save</button> -->
+    </div>
+
+</div>

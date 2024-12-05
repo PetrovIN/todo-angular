@@ -1,0 +1,38 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn-filter {
+    color: black;
+    border-radius: 4px;
+    border-width: 1px;
+    margin: 2px;
+}
+
+.btn-filter:focus {
+    color: #000;
+    outline: none;
+    border: #000 solid 1.5px;
+    background-color: #d7ecff;
+}
+
+.btn-filter:hover {
+    background-color: white;
+}
+ul {
+    list-style-type: none;
+}
+.allCompletedCheckbox {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.inputToDo {
+    display: flex;
+    flex-direction: row;
+}
+.btn-addItem {
+    margin-left: 3px;
+}
